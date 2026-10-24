@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#155eef">
+  <meta name="description" content="EasyZoom helps everyone install Zoom and join meetings with simple, accessible instructions.">
+  <title>EasyZoom | Meetings made simple</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+  <header class="site-header">
+    <a class="brand" href="#" aria-label="EasyZoom home" id="homeLink">
+      <span class="brand-mark" aria-hidden="true">E</span>
+      <span>Easy<span>Zoom</span></span>
+    </a>
+    <button class="text-size" id="textSizeBtn" type="button" aria-pressed="false">A+ Larger text</button>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="homeView">
+      <div class="hero-icon" aria-hidden="true">
+        <svg viewBox="0 0 64 64" role="img"><rect x="5" y="14" width="39" height="36" rx="8" fill="currentColor"/><path d="M44 25l14-9c2-1 4 0 4 3v26c0 3-2 4-4 3l-14-9z" fill="currentColor"/><circle cx="24" cy="32" r="7" fill="#fff" opacity=".95"/></svg>
+      </div>
+      <p class="eyebrow">VIDEO MEETINGS MADE SIMPLE</p>
+      <h1>Let's get you<br>into your meeting.</h1>
+      <p class="hero-copy">Choose what you need. We'll guide you one step at a time.</p>
+      <div class="main-actions">
+        <button class="action-card install-card" id="installBtn" type="button">
+          <span class="action-icon" aria-hidden="true">↓</span>
+          <span><strong>Install Zoom</strong><small>Get Zoom for your device</small></span>
+          <span class="chevron" aria-hidden="true">›</span>
+        </button>
+        <button class="action-card join-card" id="joinBtn" type="button">
+          <span class="action-icon" aria-hidden="true">↗</span>
+          <span><strong>Join my meeting</strong><small>I have a meeting link or ID</small></span>
+          <span class="chevron" aria-hidden="true">›</span>
+        </button>
+        <button class="action-card help-card" id="helpBtn" type="button">
+          <span class="action-icon" aria-hidden="true">?</span>
+          <span><strong>I need help</strong><small>Show me what to do</small></span>
+          <span class="chevron" aria-hidden="true">›</span>
+        </button>
+      </div>
+      <p class="privacy-note"><span aria-hidden="true">🔒</span> Your meeting details stay on this device. EasyZoom does not save them.</p>
+    </section>
+
+    <section class="panel hidden" id="installView" aria-labelledby="installTitle">
+      <button class="back-btn" data-back type="button">← Back</button>
+      <div class="section-symbol" aria-hidden="true">↓</div>
+      <p class="eyebrow">STEP 1</p>
+      <h1 id="installTitle">Get Zoom on your device</h1>
+      <p class="section-intro">We detected a likely device type. Choose the button below to open Zoom's official download page.</p>
+      <div class="device-note" id="deviceNote" role="status"></div>
+      <a class="primary-btn full" id="downloadLink" href="https://zoom.us/download" target="_blank" rel="noopener noreferrer">Open official Zoom download page ↗</a>
+      <div class="notice"><strong>What happens next?</strong><p>Follow the instructions shown by your app store or computer. Your device may ask you to confirm the download or installation. EasyZoom cannot install apps silently.</p></div>
+      <div class="link-row">
+        <a href="https://play.google.com/store/apps/details?id=us.zoom.videomeetings" target="_blank" rel="noopener noreferrer">Android · Google Play</a>
+        <a href="https://apps.apple.com/app/zoom-workplace/id546505307" target="_blank" rel="noopener noreferrer">iPhone · App Store</a>
+        <a href="https://zoom.us/download" target="_blank" rel="noopener noreferrer">Windows / Mac</a>
+      </div>
+      <button class="secondary-btn full" id="installDoneBtn" type="button">I have Zoom. Help me join</button>
+    </section>
+
+    <section class="panel hidden" id="joinView" aria-labelledby="joinTitle">
+      <button class="back-btn" data-back type="button">← Back</button>
+      <p class="eyebrow">JOIN A MEETING</p>
+      <h1 id="joinTitle">How would you like to join?</h1>
+      <p class="section-intro">Choose the option that matches the information you received.</p>
+      <div class="tab-switch" role="tablist" aria-label="Meeting information type">
+        <button class="tab active" id="linkTab" role="tab" aria-selected="true" aria-controls="linkForm" type="button">I have a link</button>
+        <button class="tab" id="idTab" role="tab" aria-selected="false" aria-controls="idForm" type="button">I have a meeting ID</button>
+      </div>
+      <form id="linkForm" class="meeting-form">
+        <label for="meetingLink">Paste the full Zoom meeting link</label>
+        <p class="field-help">It may have been sent to you by WhatsApp, text message, or email.</p>
+        <input id="meetingLink" name="meetingLink" type="url" inputmode="url" placeholder="https://zoom.us/j/..." autocomplete="url">
+        <p class="inline-error" id="linkError" role="alert"></p>
+        <button class="primary-btn full" type="submit">Open my meeting ↗</button>
+      </form>
+      <form id="idForm" class="meeting-form hidden">
+        <label for="meetingId">Meeting ID</label>
+        <p class="field-help">Enter the numbers from your invitation. Spaces and hyphens are okay.</p>
+        <input id="meetingId" name="meetingId" type="text" inputmode="numeric" autocomplete="off" placeholder="For example, 123 4567 8901">
+        <label for="passcode">Passcode <span class="optional">(if provided)</span></label>
+        <input id="passcode" name="passcode" type="text" autocomplete="off" placeholder="Enter meeting passcode">
+        <p class="inline-error" id="idError" role="alert"></p>
+        <button class="primary-btn full" type="submit">Continue to Zoom ↗</button>
+        <p class="small-note">Your ID and passcode are used only to create the meeting link in this page. They are not sent to or saved by EasyZoom.</p>
+      </form>
+      <div class="notice"><strong>Can't join in your browser?</strong><p>Zoom may open the app or ask you to install it. Joining in a browser depends on the host's settings and Zoom's support for your device.</p></div>
+    </section>
+
+    <section class="panel hidden" id="helpView" aria-labelledby="helpTitle">
+      <button class="back-btn" data-back type="button">← Back</button>
+      <p class="eyebrow">WE'RE HERE TO HELP</p>
+      <h1 id="helpTitle">Let's do it together.</h1>
+      <p class="section-intro">Choose the sentence that best describes your situation.</p>
+      <details class="help-item">
+        <summary>I received a meeting link on WhatsApp</summary>
+        <ol><li>Open WhatsApp and find the message.</li><li>Press and hold the meeting link, then choose <strong>Copy</strong>.</li><li>Return to EasyZoom and tap <strong>Join my meeting</strong>.</li><li>Choose <strong>I have a link</strong>, paste it, then tap <strong>Open my meeting</strong>.</li></ol>
+      </details>
+      <details class="help-item">
+        <summary>I have a meeting ID and passcode</summary>
+        <ol><li>Tap <strong>Join my meeting</strong>.</li><li>Choose <strong>I have a meeting ID</strong>.</li><li>Enter the meeting ID and passcode from your invitation.</li><li>Tap <strong>Continue to Zoom</strong> and follow any prompts.</li></ol>
+      </details>
+      <details class="help-item">
+        <summary>I need to install Zoom</summary>
+        <ol><li>Tap <strong>Install Zoom</strong>.</li><li>Tap the official download button.</li><li>Follow the instructions on your device or app store. You may need to confirm installation.</li><li>Return to EasyZoom when you're ready to join.</li></ol>
+      </details>
+      <details class="help-item">
+        <summary>Zoom asks me to open the app or sign in</summary>
+        <p>Follow the instructions Zoom shows. Some meetings require the app, sign-in, a passcode, or permission to use your camera and microphone. EasyZoom cannot bypass those requirements.</p>
+      </details>
+      <button class="primary-btn full" id="helpJoinBtn" type="button">Help me join a meeting</button>
+    </section>
+
+    <section class="panel hidden" id="errorView" aria-labelledby="errorTitle">
+      <button class="back-btn" data-back type="button">← Back</button>
+      <div class="section-symbol warning" aria-hidden="true">!</div>
+      <h1 id="errorTitle">Let's check that link</h1>
+      <p class="section-intro" id="errorText">Please check the link and try again.</p>
+      <button class="primary-btn full" id="errorRetryBtn" type="button">Try again</button>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>EasyZoom is an independent helper website and is not affiliated with Zoom Communications, Inc.</p>
+    <p>Zoom is a trademark of Zoom Communications, Inc.</p>
+  </footer>
+  <script src="script.js"></script>
+</body>
+</html>
